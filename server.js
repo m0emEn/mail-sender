@@ -35,13 +35,13 @@ app.post('/',(req,res)=>{
     let response={
         body:{
             name:req.body.n,
-            intro:"Your Bill has arrived",
+            intro:"ya marwen wink",
             table:{
                 data:[
                     {
-                        item:"Nodemailer Stack Book",
-                        description:"A Backend Application",
-                        price:"$10.99",
+                        wiiiw:"test",
+                        description:"qsdqsdqsd",
+                        prix:"999dt",
                     }
                 ]
             },
@@ -56,9 +56,7 @@ app.post('/',(req,res)=>{
 
     }
     transporter.sendMail(message).then(()=>{
-        res.status(201).json({
-            msg:"you recived the bill"
-        })
+        res.redirect('/')
     }).catch(error=>{
         return res.status(500).json({error})
     })
