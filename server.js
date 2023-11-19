@@ -29,22 +29,24 @@ app.post('/',(req,res)=>{
         theme:"default",
         product:{
             name:"Moemen",
-            link:"https://mailgen.js/"
+            link:"https://moemen.netlify.app/"
         }
     })
     let response={
         body:{
+            greeting: 'Dear',
+            signature: 'Sincerely',
             name:req.body.n,
-            intro:"ya marwen wink",
-            table:{
-                data:[
-                    {
-                        wiiiw:"test",
-                        description:"qsdqsdqsd",
-                        prix:"999dt",
-                    }
-                ]
+            title:"Welcome",
+            action:{
+                instructions: 'Check My Portfolio:',
+                button: {
+                color: '#48cfad', // Optional action button color
+                text: 'Portfolio',
+                link: 'https://moemen.netlify.app/'
+                }
             },
+            
         }
     }
     let mail=MailGenerator.generate(response)
@@ -53,7 +55,6 @@ app.post('/',(req,res)=>{
         to:userEmail,
         subject:"hello",
         html:mail
-
     }
     transporter.sendMail(message).then(()=>{
         res.redirect('/')
